@@ -2,30 +2,29 @@ package com.company;
 
 public class DecideNumber {
 
+    private static DecideNumber decideNumber;
 
-    private String number;
+    private DecideNumber() {
 
-    public DecideNumber(String number) {
-        this.number = number;
     }
 
-    public String getNumber() {
-        return number;
+    static{
+        decideNumber = new DecideNumber();
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public static DecideNumber getInstance() {
+        return decideNumber;
     }
 
-    public int calculateNumber() {
+    public int calculateNumber(String number) {
         int ret = -1;
-        if (validatePosition((6))) {
+        if (validatePosition(6, number)) {
             // 0, 2, 6, 8
-            if (validatePosition(3)) {
+            if (validatePosition(3, number)) {
                 // 0, 6, 8
-                if (validatePosition(5)) {
+                if (validatePosition(5, number)) {
                     // 0, 8
-                    if (validatePosition(4)) {
+                    if (validatePosition(4, number)) {
                         // 8
                         ret = 8;
                     } else {
@@ -41,11 +40,11 @@ public class DecideNumber {
                 ret = 2;
             }
         } else {
-            if (validatePosition(3)) { // 1, 3, 4, 5, 7, 9
+            if (validatePosition(3, number)) { // 1, 3, 4, 5, 7, 9
                 // 4, 5, 9
-                if (validatePosition(5)) {
+                if (validatePosition(5, number)) {
                     // 4, 9
-                    if (validatePosition(1)) {
+                    if (validatePosition(1, number)) {
                         // 9
                         ret = 9;
                     } else {
@@ -58,12 +57,12 @@ public class DecideNumber {
                 }
             } else {
                 // 1, 3, 7
-                if (validatePosition(7)) {
+                if (validatePosition(7, number)) {
                     // 3
                     ret = 3;
                 } else {
                     // 1, 7
-                    if (validatePosition(1)) {
+                    if (validatePosition(1, number)) {
                         // 7
                         ret = 7;
                     } else {
@@ -77,7 +76,7 @@ public class DecideNumber {
         return ret;
     }
 
-    public boolean validatePosition(int position) {
+    public boolean validatePosition(int position, String number) {
         return number.charAt(position) != ' ';
     }
 }

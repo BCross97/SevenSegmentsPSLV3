@@ -2,7 +2,15 @@ package com.company;
 
 public class Main {
 
+    private Controller controller;
+
+    public Main() {
+        controller = new Controller();
+        controller.startProgram();
+    }
+
+
     public static void main(String[] args) {
-	// write your code here
+        Main m = new Main();
     }
 }
