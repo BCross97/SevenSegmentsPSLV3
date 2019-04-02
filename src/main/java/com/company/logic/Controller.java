@@ -1,9 +1,5 @@
-package com.company;
+package com.company.logic;
 
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
-
-import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +12,7 @@ public class Controller {
 
     public Controller() {
         preProcessing = new PreProcessing();
-        ssNumbers = new ArrayList<>();
+        ssNumbers = new ArrayList<SSNumber>();
         br = new BufferedReader(new InputStreamReader(System.in));
         bw = new BufferedWriter(new OutputStreamWriter(System.out));
     }
