@@ -1,5 +1,6 @@
 package com.company.logic;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,28 +21,12 @@ public class Controller {
     public void startProgram() {
         try {
             bw.write("Welcome, this is the pure Java version of the Seven Segments code challenge\n");
-            bw.write("Do you want to load the numbers from a .txt or write it in the console? (txt/console)\n");
             bw.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try {
-            String firstAnswer = br.readLine();
-            if (firstAnswer.equals("txt")) {
-
-
-            } else if (firstAnswer.equals("console")) {
-                inputByConsole();
-            } else {
-                bw.write("Wrong input, try again\n");
-                bw.close();
-                startProgram();
-                return;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        inputByConsole();
 
     }
 
